@@ -52,19 +52,6 @@ public class JumpScript : MonoBehaviour
             }
             //rigidbody2D.AddForce((transform.up * 40f));
         }
-
-        if (jumpbuttonpressed)
-        {
-            if (IsOnGround())
-            {
-                //rigidbody2D.velocity += jumpPreset;
-                //rigidbody2D.AddForce((transform.up * 10f));
-            }
-            else
-            {
-                
-            }
-        }
     }
 
     private bool IsOnGround()
