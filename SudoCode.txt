@@ -1,0 +1,126 @@
+Level generator
+
+Use the level number as a seed to get a really long random number. RandNumber
+
+If a longer number is required, use the level number + the final 4 numbers to seed a new long random number.
+
+Then use the random number we got to decide on platform heights and possible coins.
+
+
+Begin the level with 5 flat floors with no platforms above.
+
+
+
+Main generator loop:
+
+
+
+Prototype 3
+Create map based on imaginary player. Use the random numbers to decide if the player will jump.
+
+int eventCoolDown = 0;
+int currentNum = seeded random number with blocksNumber in the RandNumber as a seed
+
+currentNum idea:
+3.412
+
+First letter decides event: 1 = spike, 2 = hole, 3 = Platform, 4 = Double platform, 5 = None,
+If a hole is selected, second letter decides if the player will have to jump once or twice. Under 5 is one jump, over 5 is two jumps.
+If a spike is selected, second letter again decides if the player will have to jump once or twice. --::--
+If a Platform is selected, second letter will decide position. 1 = Two up one out, 2 = One up (If third letter is < than 5 have platform 2 out instead of 1), 4 = One down (If third letter is: 1-2.5 One out, 2.5-5 Two out, 5-7.5 Three out, 7.5-10 Four out),
+  6 = Two down (If third letter is: 1-2.5 = Two out, 2.5-5 = Three out, 5-7.5 = Four out, 7.5-10 Five out.)
+  After a platform is made the following events will be decided from that height. If the position decided already has a platform in a 3x3 area around the suggested choice then retry with new seed or discard.
+If a Double platform is selected, the second letter will decide first platform position in the same way as event Platform.
+  Third letter will decide second platforms position with same formula, but if selected height is the same or 1/-1 then retry with new seed of currentNum + RandNumber.
+  If any of the positions decided already has a platform in a 3x3 area around the suggested choice discard that try.
+
+For every spawned object a random number is made with its x and y coords + the currentNum as a seed. If the result is 5 then a coin is spawned above that object.
+
+
+event = currentNum first letter
+jumps = currentNum second letter
+
+if (startZone < 5)
+
+  startZone ++
+
+else if (event = 1)
+
+  
+
+
+
+
+
+
+Prototype 2
+
+if (blocksNumber in the RandNumber is 1)
+
+  placePlatform two blocks below
+
+if (blocksNumber in the RandNumber is 2)
+
+  placePlatform one block below
+
+if (blocksNumber in the RandNumber is 3)
+
+  placePlatform one block above
+
+if (blocksNumber in the RandNumber is 4)
+
+  placePlatform two blocks above
+
+if (blocksNumber in the RandNumber is 5)
+
+  placePlatform two blocks above
+  placePlatform two blocks below
+
+
+
+ProtoType 1
+
+
+if (blocksNumber in the RandNumber is 5 or above)
+  
+  if (blocksNumber in the RandNumber is 7.5 or above)
+
+    PlacePlatform on the next column at two blocks higher than current height
+
+  if else (blocksNumber in the RandNumber is 7.5 or below)
+
+    PlacePlatform on the next column at one block higher than current height
+    continue;
+
+if else (blocksNumber in the RandNumber is 4.99 or less)
+
+  if (blocksNumber in the RandNumber is 3.5 above
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

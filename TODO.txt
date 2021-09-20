@@ -1,0 +1,7 @@
+Todo:
+- Fix death trigger when falling long distance onto floor. (The player goes into the ground and then bounce up again)
+- Make a death counter.
+- Make a seed based level generator.
+- Save current level number to file to let the player continue where they left off on load.
+- Implement background and objects based on drawings from Naomi.
+- 
